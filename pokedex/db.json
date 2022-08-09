@@ -1,0 +1,22 @@
+{
+  "pokemon": [
+    {
+      "id": 1,
+      "pokemon": "Pikachu",
+      "trainer": "Ash", 
+      "type": "Electric"
+    },
+    {
+      "id": 1,
+      "pokemon": "Onix",
+      "trainer": "Brock", 
+      "type": "Rock"
+    },
+    {
+      "id": 1,
+      "pokemon": "Charizard",
+      "trainer": "You", 
+      "type": "Fire"
+    }
+  ]
+}

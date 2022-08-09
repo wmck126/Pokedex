@@ -3,9 +3,11 @@ import Header from './Header';
 import Body from './Body';
 
 export default function Homepage () {
+    
+
     return (
         <div>
-        <Header />
+        <Header/>
         <Body />
         </div>
     )
