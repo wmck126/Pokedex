@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import Homepage from './Homepage';
-import Pokemon from './Pokemon/Pokemon';
-import Trainer from './Trainer/Trainer';
+import Pokemon from '../Pokemon/Pokemon';
+import Trainer from '../Trainer/Trainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import CreateTrainer from './Trainer/CreateTrainer';
-import CreatePokemon from './Pokemon/CreatePokemon';
+import CreateTrainer from '../Trainer/CreateTrainer';
+import CreatePokemon from '../Pokemon/CreatePokemon';
 
 function App() {
 

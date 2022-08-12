@@ -1,7 +1,7 @@
 import React from 'react';
 import PokemonDropDownList from './PokemonDropDownList';
 import { useNavigate } from "react-router-dom"
-import Navbar from '../Navbar';
+import Navbar from '../Framework/Navbar';
 
 
 
