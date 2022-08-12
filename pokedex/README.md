@@ -6,9 +6,9 @@ You can sort by trainer to see which pokemon belongs to which trainers
 
 ##TO DO
   - Auto update page to show creation/deletion of form items
-  - Add styling
+  - ~~Add styling~~
   - Add more data to seedfile
-  - Add images to pokemon
+  - ~~Add images to pokemon~~
   - Add search feature
-  - Include navbar
+  - ~~Include navbar~~
   - Add gym information
