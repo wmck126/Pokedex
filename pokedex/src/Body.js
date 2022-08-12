@@ -14,8 +14,8 @@ export default function Body () {
 
     return (
         <div>
-        <button onClick={toTrainer}>Find trainer info</button>
-        <button onClick={toPokemon}>Find pokemon info</button>
+        <button id="trainerButton" onClick={toTrainer}>Find trainer info</button>
+        <button id="pokemonButton" onClick={toPokemon}>Find pokemon info</button>
         </div>
     )
 }

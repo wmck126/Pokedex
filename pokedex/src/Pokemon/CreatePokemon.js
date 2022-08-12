@@ -1,12 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom"
+import Navbar from '../Navbar';
 
 
-export default function CreatePokemon({onAddPokemon}) {
+export default function CreatePokemon({onAddPokemon, pokemon}) {
   const [pokeName, setPokeName] = useState("")
   const [types, setTypes] = useState("")
   const [bestMove, setBestMove] = useState("")
   const [trainerId, setTrainerID] = useState(0)
+  const [imageurl, setImageUrl] = useState("")
+  console.log(imageurl)
 
   function handleSubmit(e){
     e.preventDefault()
@@ -19,6 +22,7 @@ export default function CreatePokemon({onAddPokemon}) {
           poke_name: pokeName,
           types: types,
           best_move: bestMove,
+          image_url: imageurl,
           trainer_id: trainerId
         })
       })
@@ -26,46 +30,57 @@ export default function CreatePokemon({onAddPokemon}) {
       .then(data =>onAddPokemon(data))
     }
 
-    const navigate = useNavigate()
-    function toHome() {
-      navigate("/")
-  }
-
+  const navigate = useNavigate()
   function toPokemon() {
       navigate("/pokemon")
   }
   
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <>
+    <Navbar />
+    <div id="createPokemonForm">
+      <form onSubmit={handleSubmit} >
         <div id="labels">
-        <label>Enter a pokemon name: 
+        <label id="label1">Enter a pokemon name: 
           <input type="text"
           onChange={(e) => setPokeName(e.target.value)}
           />
         </label>
-        <label>Enter the pokemon's type: 
+
+
+        {/* Why is this not working?!?! */}
+        <label id="label1" >Enter an image URL for the pokemon: 
+          <input type="text" placeholder="www.example.png"
+          onChange={(e) => setImageUrl(e.target.value)}
+          />
+        </label>
+
+
+        <label id="label1">Enter the pokemon's type: 
           <input type="text" 
           onChange={(e) => setTypes(e.target.value)}
           />
         </label>
-        <label>Enter its best move: 
+        <label id="label1">Enter its best move: 
           <input type="text" 
           onChange={(e) => setBestMove(e.target.value)}
           />
         </label>
-        <label>Enter the trainer associated with the pokemon: 
-          <input type="text" 
-          onChange={(e) => setTrainerID(e.target.value)}
-          />
+        <label id="label1">Select the trainer associated with the pokemon: 
+          <select id="dropdownTrainer" onChange={setTrainerID}>
+            {pokemon.map((data) =>
+            <option>{data.trainer.name}</option>
+            )}
+          </select>
         </label>
         <button onClick={handleSubmit} id="submitbtn">Submit</button>
-        </div>
         
+        <button onClick={toPokemon}>Go back to list of pokemon</button>
+        </div>
       </form>
-      <button onClick={toPokemon}>Go back to list of pokemon</button>
-      <button onClick={toHome}>Go home</button>
+      
     </div>
+    </>
   )
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import TrainerList from './Trainerlist';
 import { useNavigate } from "react-router-dom"
+import Navbar from '../Navbar';
 
 
 export default function Trainer({trainer}) {
@@ -15,8 +16,10 @@ export default function Trainer({trainer}) {
     
 
     return (
-        <div>
-        <h3>Select a trainer to learn more!</h3>
+        <>
+        <Navbar />
+        <div id="trainerList">
+        <h2>Trainers</h2>
         {trainer.map((data) => 
             {if (data.gym === undefined){return (
                 <TrainerList
@@ -40,5 +43,6 @@ export default function Trainer({trainer}) {
                 <button onClick={toHome}>Home</button>
         
         </div>
+        </>
     )
 }

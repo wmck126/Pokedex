@@ -35,7 +35,7 @@ function App() {
           <Route path="/pokemon" element={<Pokemon pokemon={pokemon}/>} />
           <Route path="/trainer" element={<Trainer trainer={trainer}/>} />
           <Route path='/createtrainer' element={<CreateTrainer />}/>
-          <Route path='/createpokemon' element={<CreatePokemon />}/>
+          <Route path='/createpokemon' element={<CreatePokemon pokemon={pokemon}/>}/>
         </Routes>
       </BrowserRouter>
     </div>

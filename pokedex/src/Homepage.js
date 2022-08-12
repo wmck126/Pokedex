@@ -6,7 +6,7 @@ export default function Homepage () {
     
 
     return (
-        <div>
+        <div id="homepage">
         <Header/>
         <Body />
         </div>

@@ -1,10 +1,16 @@
+
+
 body {
+  background: url(../public/3952024.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Silkscreen', cursive;
+}
+
+button {
+  font-family: 'Silkscreen', cursive;
 }
 
 code {
@@ -12,16 +18,23 @@ code {
     monospace;
 }
 
-form {
-  height: 600px;
-  width: 600px;
-  text-align: center;
-}
-
 #labels {
   display: flex;
+  margin-top: 10px;
   flex-direction: column;
+  align-items: center;
   height:20px;
+}
+
+#label1{
+  margin-top: 10px
+}
+
+#createPokemonForm {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #submitbtn {
@@ -29,4 +42,94 @@ form {
   flex-direction: column;
   align-content: center;
   flex-wrap: nowrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+
+#trainerCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  width: 30%;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+#trainerList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+#trainerPic {
+  height: 60%;
+  width: 60%;
+}
+
+#trainerTitle {
+  text-align: center;
+}
+
+#homepage {
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%)
+}
+
+#trainerButton {
+  margin-right: 50px;
+}
+#pokemonCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  width: 30%;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+#pokemonList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+
+#pokemonTitle {
+  text-align: center;
+}
+
+#pokemonPic {
+  height: 60%;
+  width: 60%;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+}
+
+#pokeball {
+  height: 50px;
+  margin-top: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+#createPokemon {
+  margin-top: 10px;
+}
+
