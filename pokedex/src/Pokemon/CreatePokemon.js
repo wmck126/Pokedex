@@ -48,8 +48,6 @@ export default function CreatePokemon({onAddPokemon, pokemon}) {
           />
         </label>
 
-
-        {/* Why is this not working?!?! */}
         <label id="label1" >Enter an image URL for the pokemon: 
           <input type="text" placeholder="www.example.png"
           onChange={(e) => setImageUrl(e.target.value)}
