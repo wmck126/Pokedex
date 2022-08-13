@@ -69,9 +69,11 @@ export default function CreatePokemon({onAddPokemon, pokemon}) {
 
         <label id="label1">Select the trainer associated with the pokemon: 
           <select id="dropdownTrainer" onChange={(e) => setTrainerID((e.target.selectedIndex)+1)}>
-            {pokemon.map((data) =>
-            <option id={data.trainer.id}>{data.trainer.name}</option>
-            )}
+            {pokemon.length > 0 ? pokemon.map((data) => {  
+            return data.trainer ? <option id={data.trainer.id}>{data.trainer.name}</option> :
+            null
+          }
+            ) : null}
           </select>
         </label>
 

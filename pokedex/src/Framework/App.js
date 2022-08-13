@@ -40,10 +40,10 @@ function handleDeletedPokemon(deletedPokemon){
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/pokemon" element={<Pokemon pokemon={pokemon} onDeletePokemon={handleDeletedPokemon}/>} />
+          <Route path="/pokemon" element={<Pokemon pokemon={pokemon} />} />
           <Route path="/trainer" element={<Trainer trainer={trainer}/>} />
           <Route path='/createtrainer' element={<CreateTrainer />}/>
-          <Route path='/createpokemon' element={<CreatePokemon pokemon={pokemon} onAddPokemon={handleAddPokemon}/>}/>
+          <Route path='/createpokemon' element={<CreatePokemon pokemon={pokemon} onAddPokemon={handleAddPokemon} onDeletePoke={handleDeletedPokemon}/>}/>
         </Routes>
       </BrowserRouter>
     </div>
