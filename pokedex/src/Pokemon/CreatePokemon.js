@@ -9,32 +9,32 @@ export default function CreatePokemon({onAddPokemon, pokemon}) {
   const [bestMove, setBestMove] = useState("")
   const [trainerId, setTrainerID] = useState(0)
   const [imageurl, setImageUrl] = useState("")
-  console.log(imageurl)
+  console.log(trainerId)
 
   function handleSubmit(e){
     e.preventDefault()
-      fetch("http://localhost:9292/pokemon", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          poke_name: pokeName,
-          types: types,
-          best_move: bestMove,
-          image_url: imageurl,
-          trainer_id: trainerId
-        })
+
+    fetch("http://localhost:9292/pokemon", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        poke_name: pokeName,
+        types: types,
+        best_move: bestMove,
+        trainer_id: trainerId,
+        image_url: imageurl
       })
-      .then(r => r.json())
-      .then(data =>onAddPokemon(data))
-    }
+    })
+    .then(r => r.json())
+    .then(data => onAddPokemon(data))
+  }
 
   const navigate = useNavigate()
   function toPokemon() {
       navigate("/pokemon")
   }
-  
 
   return (
     <>
@@ -42,6 +42,7 @@ export default function CreatePokemon({onAddPokemon, pokemon}) {
     <div id="createPokemonForm">
       <form onSubmit={handleSubmit} >
         <div id="labels">
+
         <label id="label1">Enter a pokemon name: 
           <input type="text"
           onChange={(e) => setPokeName(e.target.value)}
@@ -54,30 +55,31 @@ export default function CreatePokemon({onAddPokemon, pokemon}) {
           />
         </label>
 
-
         <label id="label1">Enter the pokemon's type: 
           <input type="text" 
           onChange={(e) => setTypes(e.target.value)}
           />
         </label>
+
         <label id="label1">Enter its best move: 
           <input type="text" 
           onChange={(e) => setBestMove(e.target.value)}
           />
         </label>
+
         <label id="label1">Select the trainer associated with the pokemon: 
-          <select id="dropdownTrainer" onChange={setTrainerID}>
+          <select id="dropdownTrainer" onChange={(e) => setTrainerID((e.target.selectedIndex)+1)}>
             {pokemon.map((data) =>
-            <option>{data.trainer.name}</option>
+            <option id={data.trainer.id}>{data.trainer.name}</option>
             )}
           </select>
         </label>
-        <button onClick={handleSubmit} id="submitbtn">Submit</button>
+
+        <button id="submitbtn" type='submit'>Submit</button>
         
-        <button onClick={toPokemon}>Go back to list of pokemon</button>
         </div>
       </form>
-      
+      <button onClick={toPokemon} id="goBackBttn">Go back to list of pokemon</button>
     </div>
     </>
   )

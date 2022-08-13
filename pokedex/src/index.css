@@ -7,6 +7,7 @@ body {
   background-size: cover;
   margin: 0;
   font-family: 'Silkscreen', cursive;
+  font-size: 20px;
 }
 
 button {
@@ -55,7 +56,8 @@ code {
   border-width: 1px;
   width: 30%;
   margin-top: 10px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  background:rgba(255,255,255,0.5)
 }
 
 #trainerList {
@@ -95,7 +97,8 @@ code {
   border-width: 1px;
   width: 30%;
   margin-top: 10px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  background:rgba(255,255,255,0.5)
 }
 
 #pokemonList {
@@ -119,6 +122,7 @@ code {
 #navbar {
   display: flex;
   flex-direction: row;
+  position: fixed;
 }
 
 #pokeball {
@@ -132,4 +136,17 @@ code {
 #createPokemon {
   margin-top: 10px;
 }
+
+#pokemonDeleteButton {
+  margin-bottom: 10px
+}
+
+#goBackBttn {
+  display:flex;
+  margin-top: 20%;
+  justify-content: center;
+  align-items: center;
+  width:300px;
+}
+
 

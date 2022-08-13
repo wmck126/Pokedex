@@ -3,7 +3,6 @@ import Homepage from './Homepage';
 import Pokemon from '../Pokemon/Pokemon';
 import Trainer from '../Trainer/Trainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
 import CreateTrainer from '../Trainer/CreateTrainer';
 import CreatePokemon from '../Pokemon/CreatePokemon';
 
@@ -25,6 +24,15 @@ function App() {
     .then(data =>setTrainer(data))
 }, [])
 
+function handleAddPokemon(newPokemon){
+  setPokemon([...pokemon, newPokemon])
+}
+
+function handleDeletedPokemon(deletedPokemon){
+  const updatedPokemonList = pokemon.filter((poke) => poke.id !== deletedPokemon)
+  setPokemon(updatedPokemonList)
+}
+
 
 
   return (
@@ -32,10 +40,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/pokemon" element={<Pokemon pokemon={pokemon}/>} />
+          <Route path="/pokemon" element={<Pokemon pokemon={pokemon} onDeletePokemon={handleDeletedPokemon}/>} />
           <Route path="/trainer" element={<Trainer trainer={trainer}/>} />
           <Route path='/createtrainer' element={<CreateTrainer />}/>
-          <Route path='/createpokemon' element={<CreatePokemon pokemon={pokemon}/>}/>
+          <Route path='/createpokemon' element={<CreatePokemon pokemon={pokemon} onAddPokemon={handleAddPokemon}/>}/>
         </Routes>
       </BrowserRouter>
     </div>
