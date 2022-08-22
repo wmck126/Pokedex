@@ -11,15 +11,14 @@ export default function Pokemon({pokemon, onDeletePoke}) {
     function toCreatePokemon() {
         navigate("/createpokemon")
     }
-    console.log(pokemon)
 
     return (
         <>
         <Navbar />
         <div id="pokemonList">
-        <h2>Pokemon</h2>
-        {pokemon.map((data) => (console.log(data),data.trainer ?
-            <PokemonDropDownList 
+        <h2 key="pokemon">Pokemon</h2>
+        {pokemon.map((data) => (data.trainer ?
+            <PokemonDropDownList key={data.id}
                 pokemon={data.poke_name}
                 trainer={data.trainer.name}
                 type = {data.types}

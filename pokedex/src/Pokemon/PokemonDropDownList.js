@@ -1,6 +1,7 @@
 import React from 'react';
 
 
+
 export default function PokemonDropDownList({pokemon, trainer, type, id, onDeletePoke, best_move, image_url}) {
   
   function handleDeleteClick(){
@@ -14,13 +15,11 @@ export default function PokemonDropDownList({pokemon, trainer, type, id, onDelet
     return (
       <div key={id} id="pokemonCard">
         <h2 id="pokemonTitle">{pokemon}</h2>
-        <img src={image_url} alt="Pokemon picture" id="pokemonPic"/>
+        <img src={image_url} alt="Pokemon" id="pokemonPic"/>
         <p id="pokemonType">Type: {type}</p>
         <p id="pokemonBestMove">Best move: {best_move}</p>
         <p id="pokemonTrainer">Trainer: {trainer}</p>
         <button onClick={handleDeleteClick} id="pokemonDeleteButton">Delete pokemon</button>
       </div>
-      
-      
     )
 }

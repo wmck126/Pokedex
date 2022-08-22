@@ -26,7 +26,12 @@ export default function CreatePokemon({onAddPokemon, pokemon, trainer}) {
       })
     })
     .then(r => r.json())
-    .then(data => onAddPokemon(data))
+    .then(data => {
+      const tr = trainer.find((t) => t.id === data.trainer_id)
+      const newPokemon = {...data}
+      newPokemon.trainer = tr
+      onAddPokemon(newPokemon)
+    })
   }
 
   return (
@@ -60,20 +65,15 @@ export default function CreatePokemon({onAddPokemon, pokemon, trainer}) {
           />
         </label>
 
-
-{/* Need to map through available trainer data
-Take that mapped data and fill into options
-Set the trainerID to that option id to associate the trainer with the pokemon
-
-*/}
+{/* ******************************************************************** */}
 
         <label id="label1">Select the trainer associated with the pokemon: 
           <select id="dropdownTrainer" onChange={(e) => setTrainerID(e.target.value)}>
-            {trainer.map((data) => <option key={data.id} value={data.id}>{data.name}</option>)}
+            {trainer.map((data) => {
+              console.log("Trainer data: ",data) 
+              return <option key={data.id} value={data.id}>{data.name}</option>})}
           </select>
         </label>
-
-
 
         <button id="submitbtn" type='submit'>Submit</button>
         
