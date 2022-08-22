@@ -1,15 +1,13 @@
 import React, {useState} from 'react';
-import { useNavigate } from "react-router-dom"
 import Navbar from '../Framework/Navbar';
 
 
-export default function CreatePokemon({onAddPokemon, pokemon}) {
+export default function CreatePokemon({onAddPokemon, pokemon, trainer}) {
   const [pokeName, setPokeName] = useState("")
   const [types, setTypes] = useState("")
   const [bestMove, setBestMove] = useState("")
-  const [trainerId, setTrainerID] = useState(0)
+  const [trainerId, setTrainerID] = useState(1)
   const [imageurl, setImageUrl] = useState("")
-  console.log(trainerId)
 
   function handleSubmit(e){
     e.preventDefault()
@@ -29,11 +27,6 @@ export default function CreatePokemon({onAddPokemon, pokemon}) {
     })
     .then(r => r.json())
     .then(data => onAddPokemon(data))
-  }
-
-  const navigate = useNavigate()
-  function toPokemon() {
-      navigate("/pokemon")
   }
 
   return (
@@ -67,21 +60,25 @@ export default function CreatePokemon({onAddPokemon, pokemon}) {
           />
         </label>
 
+
+{/* Need to map through available trainer data
+Take that mapped data and fill into options
+Set the trainerID to that option id to associate the trainer with the pokemon
+
+*/}
+
         <label id="label1">Select the trainer associated with the pokemon: 
-          <select id="dropdownTrainer" onChange={(e) => setTrainerID((e.target.selectedIndex)+1)}>
-            {pokemon.length > 0 ? pokemon.map((data) => {  
-            return data.trainer ? <option id={data.trainer.id}>{data.trainer.name}</option> :
-            null
-          }
-            ) : null}
+          <select id="dropdownTrainer" onChange={(e) => setTrainerID(e.target.value)}>
+            {trainer.map((data) => <option key={data.id} value={data.id}>{data.name}</option>)}
           </select>
         </label>
+
+
 
         <button id="submitbtn" type='submit'>Submit</button>
         
         </div>
       </form>
-      <button onClick={toPokemon} id="goBackBttn">Go back to list of pokemon</button>
     </div>
     </>
   )

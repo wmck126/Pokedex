@@ -12,6 +12,7 @@ function App() {
   const [trainer, setTrainer] = useState([])
 
 
+
   useEffect(() => {
     fetch("http://localhost:9292/pokemon")
     .then(r => r.json())
@@ -29,7 +30,7 @@ function handleAddPokemon(newPokemon){
 }
 
 function handleDeletedPokemon(deletedPokemon){
-  const updatedPokemonList = pokemon.filter((poke) => poke.id !== deletedPokemon)
+  const updatedPokemonList = pokemon.filter((poke) => poke.id !== deletedPokemon.id)
   setPokemon(updatedPokemonList)
 }
 
@@ -40,10 +41,10 @@ function handleDeletedPokemon(deletedPokemon){
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/pokemon" element={<Pokemon pokemon={pokemon} />} />
+          <Route path="/pokemon" element={<Pokemon pokemon={pokemon} onDeletePoke={handleDeletedPokemon} trainer={trainer}/>} />
           <Route path="/trainer" element={<Trainer trainer={trainer}/>} />
           <Route path='/createtrainer' element={<CreateTrainer />}/>
-          <Route path='/createpokemon' element={<CreatePokemon pokemon={pokemon} onAddPokemon={handleAddPokemon} onDeletePoke={handleDeletedPokemon}/>}/>
+          <Route path='/createpokemon' element={<CreatePokemon pokemon={pokemon} trainer={trainer} onAddPokemon={handleAddPokemon} />}/>
         </Routes>
       </BrowserRouter>
     </div>
